@@ -1,0 +1,165 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="userDetailForm">
+  
+          <div class="form-group">
+            <label for="userId">UserId:</label>
+            <div *ngIf="editMode">
+              <input type="text" formControlName="userId" id="userId" class="form-control">
+              <div *ngIf="userDetailForm.get('userId').invalid && userDetailForm.get('userId').touched">
+                <span class="help-block" *ngIf="userDetailForm.get('userId').errors.required">UserId is required!</span>
+                <span class="help-block" *ngIf="userDetailForm.get('userId').errors.pattern">UserId should be numeric!</span>
+              </div>
+            </div>
+            <p *ngIf="!editMode" class="form-control">{{ userDetails.userId }}</p>
+          </div>
+  
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <div *ngIf="editMode">
+              <input type="text" formControlName="name" id="name" class="form-control">
+              <div *ngIf="userDetailForm.get('name').invalid && userDetailForm.get('name').touched">
+                <span class="help-block" *ngIf="userDetailForm.get('name').errors.required">Name is required!</span>
+              </div>
+            </div>
+            <p *ngIf="!editMode" class="form-control">{{ userDetails.name }}</p>
+          </div>
+  
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <div *ngIf="editMode">
+              <input type="text" formControlName="username" id="username" class="form-control">
+              <div *ngIf="userDetailForm.get('username').invalid && userDetailForm.get('username').touched">
+                <span class="help-block" *ngIf="userDetailForm.get('username').errors.required">Username is required!</span>
+              </div>
+            </div>
+            <p *ngIf="!editMode" class="form-control">{{ userDetails.username }}</p>
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <div *ngIf="editMode">
+              <input type="text" formControlName="email" id="email" class="form-control">
+              <div *ngIf="userDetailForm.get('email').invalid && userDetailForm.get('email').touched">
+                <span class="help-block" *ngIf="userDetailForm.get('email').errors.required">Email is required!</span>
+                <span class="help-block" *ngIf="userDetailForm.get('email').errors.email">Email is not valid!</span>
+              </div>
+            </div>
+            <p *ngIf="!editMode" class="form-control">{{ userDetails.email }}</p>
+          </div>
+  
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <div *ngIf="editMode">
+              <input type="text" formControlName="phone" id="phone" class="form-control">
+              <div *ngIf="userDetailForm.get('phone').invalid && userDetailForm.get('phone').touched">
+                <span class="help-block" *ngIf="userDetailForm.get('phone').errors.required">Phone is required!</span>
+              </div>
+            </div>
+            <p *ngIf="!editMode" class="form-control">{{ userDetails.phone }}</p>
+          </div>
+  
+          <div class="form-group">
+            <label for="website">Website:</label>
+            <input type="text" *ngIf="editMode" formControlName="website" id="website" class="form-control">
+            <p *ngIf="!editMode" class="form-control">{{ userDetails.website }}</p>
+          </div>
+  
+          <fieldset formGroupName="address">
+  
+            <legend>Address</legend>
+            
+            <div class="form-group">
+              <label for="street">Street:</label>
+              <div *ngIf="editMode">
+                <input type="text" formControlName="street" id="street" class="form-control">
+                <div *ngIf="userDetailForm.get('address.street').invalid && userDetailForm.get('address.street').touched">
+                  <span class="help-block" *ngIf="userDetailForm.get('address.street').errors.required">Street is required!</span>
+                </div>
+              </div>
+              <p *ngIf="!editMode" class="form-control">{{ userDetails.address.street }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="suite">Suite:</label>
+              <div *ngIf="editMode">
+                <input type="text" formControlName="suite" id="suite" class="form-control">
+                <div *ngIf="userDetailForm.get('address.suite').invalid && userDetailForm.get('address.suite').touched">
+                  <span class="help-block" *ngIf="userDetailForm.get('address.suite').errors.required">Suite is required!</span>
+                </div>
+              </div>
+              <p *ngIf="!editMode" class="form-control">{{ userDetails.address.suite }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="city">City:</label>
+              <div *ngIf="editMode">
+                <input type="text" formControlName="city" id="city" class="form-control">
+                <div *ngIf="userDetailForm.get('address.city').invalid && userDetailForm.get('address.city').touched">
+                  <span class="help-block" *ngIf="userDetailForm.get('address.city').errors.required">City is required!</span>
+                </div>
+              </div>
+              <p *ngIf="!editMode" class="form-control">{{ userDetails.address.city }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="zipcode">Zipcode:</label>
+              <div *ngIf="editMode">
+                <input type="text" formControlName="zipcode" id="zipcode" class="form-control">
+                <div *ngIf="userDetailForm.get('address.zipcode').invalid && userDetailForm.get('address.zipcode').touched">
+                  <span class="help-block" *ngIf="userDetailForm.get('address.zipcode').errors.required">Zipcode is required!</span>
+                </div>
+              </div>
+              <p *ngIf="!editMode" class="form-control">{{ userDetails.address.zipcode }}</p>
+            </div>
+            
+          </fieldset>
+  
+          <fieldset formGroupName="company">
+  
+            <legend>Company</legend>
+            
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <div *ngIf="editMode">
+                <input type="text" formControlName="name" id="name" class="form-control">
+                <div *ngIf="userDetailForm.get('company.name').invalid && userDetailForm.get('company.name').touched">
+                  <span class="help-block" *ngIf="userDetailForm.get('company.name').errors.required">name is required!</span>
+                </div>
+              </div>
+              <p *ngIf="!editMode" class="form-control">{{ userDetails.company.name }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="catchPhrase">Catch Phrase:</label>
+              <div *ngIf="editMode">
+                <input type="text" formControlName="catchPhrase" id="catchPhrase" class="form-control">
+                <div *ngIf="userDetailForm.get('company.catchPhrase').invalid && userDetailForm.get('company.catchPhrase').touched">
+                  <span class="help-block" *ngIf="userDetailForm.get('company.catchPhrase').errors.required">Catch Phrase is required!</span>
+                </div>
+              </div>
+              <p *ngIf="!editMode" class="form-control">{{ userDetails.company.catchPhrase }}</p>
+            </div>
+  
+            <div class="form-group">
+              <label for="bs">BS:</label>
+              <div *ngIf="editMode">
+                <input type="text" formControlName="bs" id="bs" class="form-control">
+                <div *ngIf="userDetailForm.get('company.bs').invalid && userDetailForm.get('company.bs').touched">
+                  <span class="help-block" *ngIf="userDetailForm.get('company.bs').errors.required">BS is required!</span>
+                </div>
+              </div>
+              <p *ngIf="!editMode" class="form-control">{{ userDetails.company.bs }}</p>
+            </div>
+  
+          </fieldset>
+  
+          <button class="btn btn-success" type="button" (click)="toggleEditMode()" [disabled]="userDetailForm.invalid">{{ editMode ? 'Update' : 'Edit' }}</button>
+          <button class="btn btn-danger" *ngIf="editMode" type="button" (click)="onCancel()">Cancel</button>
+          <button class="btn btn-primary" *ngIf="editMode" type="button" (click)="onClear()">Clear</button>
+  
+        </form>
+      </div>
+    </div>
+  </div>
